@@ -14,8 +14,11 @@ int main()
 
     int nbElem = 1000000;
 
+
     for(int i = 1; i <= nbElem; i++)
-        A->inserer(i);
+        A->inserer((rand()%1000)+1); ///Random numbers between 1 and 1000
+        //A->inserer(i);
+
     cout << nbElem << " element hase been inserted" << endl;
 
     ///A->print2D(); //Pour afficher l'arbre
@@ -27,7 +30,7 @@ int main()
     while(choice)
     {
         cout << ".................................................................................................." << endl;
-        cout << "\n1 : Get max elements of the Tree\n2 : Search for an element\n0 : exit" << endl;
+        cout << "\n1 : Get max elements of the Tree\n2 : Get min elements of the Tree\n3 : Search for an element\n0 : exit" << endl;
         cout << "What is your choice? : ";
         cin >> choice;
         switch(choice)
@@ -39,6 +42,12 @@ int main()
             break;
 
         case 2 :
+            cout << "How many min elements you want? : ";
+            cin >> nb;
+            A->afficherMin(nb);
+            break;
+
+        case 3 :
             cout << "What is the element you are searching for? : ";
             cin >> nb;
             if(A->recherche(nb))
