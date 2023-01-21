@@ -4,12 +4,12 @@
 template <class T>
 struct Node
 {
-    long long int value;
+    T value;
     int height;
     Node *left;
     Node *right;
 
-    nd()
+    Node()
     {
         height = 1;
         left = nullptr;
@@ -29,6 +29,7 @@ class Tree
         bool recherche(T);
         Node<T>* supprimer();
         void afficherMax(int p);
+        void afficherMin(int p);
         void print2D();
 
     private:
@@ -37,6 +38,7 @@ class Tree
         Node<T>* supprimer(Node<T>*);
         bool recherche(Node<T>*, T);
         void afficherMax(Node<T>*N, int* p);
+        void afficherMin(Node<T>*N, int* p);
         void print2DUtil(Node<T>*, int);
         int getHeigth(Node<T>*);
         Node<T>* Equilibrer(Node<T>*);
