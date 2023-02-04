@@ -51,18 +51,36 @@ bool Tree<T>::recherche(T p)
 cherche et affiche les p max elements d'apres un noeud
 **/
 template <class T>
-void Tree<T>::afficherMax(Node<T>*N, int* p)
+void Tree<T>::afficherMax(Node<T>*N, int* p, T& currVlue)
 {
     if(!N)
         return;
-    afficherMax(N->right, p);
-    if((*p))
+    afficherMax(N->right, p, currVlue);
+    if((*p) && (currVlue) != N->value)
     {
         cout << "==> " << N->value << endl;
+        currVlue = N->value;
         (*p)--;
     }
     if((*p))
-        afficherMax(N->left, p);
+        afficherMax(N->left, p, currVlue);
+}
+
+
+template <class T>
+void Tree<T>::afficherMin(Node<T>*N, int* p, T& currVlue)
+{
+    if(!N)
+        return;
+    afficherMin(N->left, p, currVlue);
+    if((*p) && (currVlue) != N->value)
+    {
+        cout << "==> " << N->value << endl;
+        currVlue = N->value;
+        (*p)--;
+    }
+    if((*p))
+        afficherMin(N->right, p, currVlue);
 }
 
 /**
@@ -71,7 +89,15 @@ cherche et affiche les p max elements d'apres la racine
 template <class T>
 void Tree<T>::afficherMax(int p)
 {
-    afficherMax(R, &p);
+    T currValue = -1;
+    afficherMax(R, &p, currValue);
+}
+
+template <class T>
+void Tree<T>::afficherMin(int p)
+{
+    T currValue = -1;
+    afficherMin(R, &p, currValue);
 }
 
 /**
