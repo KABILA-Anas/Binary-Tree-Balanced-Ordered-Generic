@@ -37,8 +37,8 @@ class Tree
         Node<T>* inserer(Node<T>*, T);
         Node<T>* supprimer(Node<T>*);
         bool recherche(Node<T>*, T);
-        void afficherMax(Node<T>*N, int* p);
-        void afficherMin(Node<T>*N, int* p);
+        void afficherMax(Node<T>*N, int* p, T& currVall);
+        void afficherMin(Node<T>*N, int* p, T& currVall);
         void print2DUtil(Node<T>*, int);
         int getHeigth(Node<T>*);
         Node<T>* Equilibrer(Node<T>*);
